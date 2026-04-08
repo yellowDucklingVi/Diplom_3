@@ -9,10 +9,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class MainPage extends BasePage {
-    private final By loginButton = By.xpath("//*[@id=\"root\"]/div/main/section[2]/div/button");
-    private final By personalAccountButton = By.xpath("//*[@id=\"root\"]/div/header/nav/a");
+    private final By loginButton = By.xpath("//button[text()='Войти в аккаунт']");
+    private final By personalAccountButton = By.xpath("//a[contains(@href,'/account')]");
     private final By orderButton = By.xpath("//button[contains(text(),'Оформить заказ')]");
-    private final By constructorHeader = By.xpath("//*[@id=\"root\"]/div/main/section[1]/h1");
+    private final By constructorHeader = By.xpath("//h1[text()='Соберите бургер']");
     private final By bunsTab = By.xpath(".//span[text()='Булки']/parent::div");
     private final By saucesTab = By.xpath(".//span[text()='Соусы']/parent::div");
     private final By fillingsTab = By.xpath(".//span[text()='Начинки']/parent::div");

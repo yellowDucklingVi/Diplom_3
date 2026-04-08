@@ -26,22 +26,17 @@ public class LoginTest extends BaseTest {
         FORGOT_PASSWORD_PAGE_LINK
     }
 
-    public LoginTest(String browserName, LoginMethod method) {
-        super(browserName);
+    public LoginTest(LoginMethod method) {
         this.method = method;
     }
 
-    @Parameterized.Parameters(name = "Браузер: {0}, Способ входа: {1}")
+    @Parameterized.Parameters(name = "Способ входа: {0}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {"chrome", LoginMethod.MAIN_PAGE_BUTTON},
-                {"chrome", LoginMethod.PERSONAL_ACCOUNT_BUTTON},
-                {"chrome", LoginMethod.REGISTER_PAGE_LINK},
-                {"chrome", LoginMethod.FORGOT_PASSWORD_PAGE_LINK},
-                {"yandex", LoginMethod.MAIN_PAGE_BUTTON},
-                {"yandex", LoginMethod.PERSONAL_ACCOUNT_BUTTON},
-                {"yandex", LoginMethod.REGISTER_PAGE_LINK},
-                {"yandex", LoginMethod.FORGOT_PASSWORD_PAGE_LINK}
+                {LoginMethod.MAIN_PAGE_BUTTON},
+                {LoginMethod.PERSONAL_ACCOUNT_BUTTON},
+                {LoginMethod.REGISTER_PAGE_LINK},
+                {LoginMethod.FORGOT_PASSWORD_PAGE_LINK}
         });
     }
 

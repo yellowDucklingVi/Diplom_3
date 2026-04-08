@@ -12,10 +12,6 @@ import static org.junit.Assert.assertTrue;
 @DisplayName("Регистрация пользователя")
 public class RegisterTest extends BaseTest {
 
-    public RegisterTest(String browserName) {
-        super(browserName);
-    }
-
     @Test
     @DisplayName("Успешная регистрация")
     @Description("Проверка регистрации нового пользователя через форму регистрации")

@@ -10,10 +10,6 @@ import static org.junit.Assert.assertTrue;
 @DisplayName("Конструктор бургеров")
 public class ConstructorTest extends BaseTest {
 
-    public ConstructorTest(String browserName) {
-        super(browserName);
-    }
-
     @Test
     @DisplayName("Переход к разделу 'Соусы'")
     @Description("При клике на вкладку 'Соусы' она становится активной")

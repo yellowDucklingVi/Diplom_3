@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class ForgotPasswordPage extends BasePage {
-    private final By loginLink = By.xpath("//*[@id='root']/div/main/div/div/p/a");
+    private final By loginLink = By.xpath("//a[text()='Войти']");
     private final WebDriverWait wait;
 
     public ForgotPasswordPage(WebDriver driver) {

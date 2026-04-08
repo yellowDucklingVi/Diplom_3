@@ -9,12 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class RegisterPage extends BasePage {
-    private final By nameField = By.xpath("//*[@id='root']/div/main/div/form/fieldset[1]/div/div/input");
-    private final By emailField = By.xpath("//*[@id='root']/div/main/div/form/fieldset[2]/div/div/input");
-    private final By passwordField = By.xpath("//*[@id='root']/div/main/div/form/fieldset[3]/div/div/input");
-    private final By registerButton = By.xpath("//*[@id='root']/div/main/div/form/button");
-    private final By loginLink = By.xpath("//*[@id='root']/div/main/div/div/p/a");
-    private final By errorMessage = By.xpath("//*[@id='root']/div/main/div/form/fieldset[3]/div/p");
+    private final By nameField = By.xpath("//label[text()='Имя']/following-sibling::input");
+    private final By emailField = By.xpath("//label[text()='Email']/following-sibling::input");
+    private final By passwordField = By.xpath("//label[text()='Пароль']/following-sibling::input");
+    private final By registerButton = By.xpath("//button[text()='Зарегистрироваться']");
+    private final By loginLink = By.xpath("//a[text()='Войти']");
+    private final By errorMessage = By.xpath("//p[text()='Некорректный пароль']");
 
     private final WebDriverWait wait;
 

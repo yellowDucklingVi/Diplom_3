@@ -2,8 +2,6 @@ package ru.yandex.praktikum.tests;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,33 +10,21 @@ import ru.yandex.praktikum.api.UserClient;
 import ru.yandex.praktikum.api.UserGenerator;
 
 import java.time.Duration;
-import java.util.Arrays;
-import java.util.Collection;
 
-@RunWith(Parameterized.class)
 public abstract class BaseTest {
     protected WebDriver driver;
     protected User user;
     protected String accessToken;
     protected UserClient userClient;
 
-    private final String browserName;
-
-    public BaseTest(String browserName) {
-        this.browserName = browserName;
-    }
-
-    @Parameterized.Parameters(name = "Браузер: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-                {"chrome"},
-                {"yandex"}
-        });
+    private String getBrowserName() {
+        return System.getProperty("browser", "chrome");
     }
 
     @Before
     public void setUp() {
         userClient = new UserClient();
+        String browserName = getBrowserName();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--remote-allow-origins=*");
         if (browserName.equals("chrome")) {
@@ -49,6 +35,8 @@ public abstract class BaseTest {
             System.setProperty("webdriver.chrome.driver", "/Users/jordan/yandexdriver");
             options.setBinary("/Applications/Yandex.app/Contents/MacOS/Yandex");
             driver = new ChromeDriver(options);
+        } else {
+            throw new IllegalArgumentException("Unsupported browser: " + browserName);
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
